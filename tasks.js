@@ -14,7 +14,7 @@ function startApp(name){
   process.stdin.setEncoding('utf8');
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
-  console.log("--------------------")
+  console.log("-------------------")
 }
 
 
