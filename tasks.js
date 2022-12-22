@@ -89,7 +89,7 @@ function exit(){
 }
 
 /**
- * Exits the application
+ * shows a list of the available commands
  *
  * @returns {void}
  */
