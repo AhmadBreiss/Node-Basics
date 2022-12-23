@@ -43,9 +43,15 @@ function onDataReceived(text) {
   else if(text.trim().split(" ")[0]==="hello"){
     hello(text.trim().substring(5));
   }
-  else if (text==='list\n'){
+  else if (text === 'list\n'){
   List();
   }
+  else if (text === 'add\n'){
+    console.log("you didn't add anything please add ");
+  }
+  else if (text.startsWith('add')){
+      add(text);
+    }
   else if(text === 'help\n'){
     help();
   }
@@ -81,6 +87,10 @@ function List(){
   console.log(
     list.map((tasks,key) => `${key+1} - ${tasks} `).join("\n")
   )
+}
+function add(text){
+ list.push(text.slice(4, text.length -1))
+ console.log("you added a element")
 }
 /**
  * Exits the application
