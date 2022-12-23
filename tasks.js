@@ -63,6 +63,12 @@ function onDataReceived(text) {
   else if(text.startsWith("edit")){
     edit(text)
   }
+  else if(text.startsWith("check")) {
+    check(text);
+  } 
+  else if(text.startsWith("uncheck")) {
+    uncheck(text);
+  }
   else{
     unknownCommand(text);
   }
@@ -100,6 +106,41 @@ function add(text){
  list.push(text.slice(4, text.length -1))
  console.log("you added a element")
 }
+function check(checked) {
+  if (checked === "check\n") {
+    console.log("the correct syntax  is :check ()");
+  }
+   else {
+    let index = checked.split(" ")[1] - 1;
+    !parseInt(index)&&index!==0
+      ? console.log(
+          `${checked.split(" ")[1].trim()} is not a validated`
+        )
+      : list[index] !== undefined
+      ? (list[index] =
+          list[index].split("]")[0].replace(` `, "✓") +
+          `]${list[index].split("]")[1]}`)
+      : console.log(`No task with number ${index + 1}`);
+  }
+}
+/**
+ * uncheck functions
+ * /
+ * @returns {void}
+ */
+function uncheck(unchecked) {
+  if (unchecked === "uncheck\n") {
+    console.log("it is correct syntex : uncheck");
+  } else {
+    let index = unchecked.split(" ")[1] - 1;
+    !parseInt(index)
+      ? console.log(`${unchecked.split(" ")[1].trim()} is not validated`
+        )
+      : list[index] !== undefined
+      ? (list[index] = list[index].replace(`✓`, " ").trim())
+      : console.log(`Nothing ${index + 1}`);
+  }
+}
 // function remove(text){
 //   list.pop(text)
 //   console.log('removed the last element')
@@ -117,6 +158,11 @@ function remove(num){
   }
   else if(index>list.length){
     console.log("does not exist please choose an element")
+  }
+  else if (text.startsWith("check")) {
+    check(text);
+  } else if (text.startsWith("uncheck")) {
+    unCheck(text); 
   }
   else{
     console.log('error!!!!!')
@@ -151,6 +197,7 @@ function exit(){
   console.log('exitting now, goodbye!')
   process.exit();
 }
+
 /**
  * shows a list of the available commands
  *
