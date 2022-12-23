@@ -141,6 +141,9 @@ function help() {
   exit and quit : "for close the application"
   hello : " hello and your name for welcoming"
   help : "To find the command to use "
+  list : "Array list"
+  add : "Add an element in the list"
+  remove : "choose an element to remove from list"
   `)
 }
 startApp("Ahmad Breiss")
