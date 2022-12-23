@@ -185,6 +185,20 @@ else {
 }
 }
 
+const fs = require('fs');
+const { finished } = require('stream');
+function savedata (sav){
+   function finished(error){
+    if(error){
+      console.error(error);
+      return;
+    }
+   }
+  const jsonData=JSON.stringify(sav)
+  fs.writeFile('data.json',jsonData,finished)
+}
+
+
 
 /**
  * Exits the application
@@ -193,6 +207,7 @@ else {
  */
 function quit(){
   console.log('Quitting now, goodbye!')
+  savedata();
   process.exit();
 }
 function exit(){
