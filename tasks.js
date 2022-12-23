@@ -60,6 +60,9 @@ function onDataReceived(text) {
   } else if(text.startsWith('remove ')){
     remove(text.slice(6, text.length-1))
   }
+  else if(text.startsWith("edit")){
+    edit(text)
+  }
   else{
     unknownCommand(text);
   }
@@ -119,6 +122,21 @@ function remove(num){
     console.log('error!!!!!')
   }
 }
+function edit (on){
+  if (on =="edit\n") {
+    console.log("error")
+}
+else {
+  let ones=on.split(" ")[1]
+  if(!parseInt(ones)){
+    list[list.length-1]=on.trim().replace("edit ","")
+  }
+  else{
+    list[ones-1]=on.trim().replace(`edit ${ones}`,'')
+  }
+}
+}
+
 
 /**
  * Exits the application
