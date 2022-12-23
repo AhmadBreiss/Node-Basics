@@ -70,7 +70,7 @@ function unknownCommand(c){
  * @returns {void}
  */
   function hello(text){
-    console.log(`Hello ${text}!`)
+    console.log(`Hello${text}!`)
 }
 
 
@@ -96,10 +96,10 @@ function exit(){
 // The following line starts the application
 function help() {
   console.log(`you may use these commands :
-  exit
-  quit
-  hello
-  help
+  exit : "for close the application"
+  quit : "for close the application"
+  hello : " hello and your name gor welcoming"
+  help : "to find the command to use "
   `)
 }
 startApp("Ahmad Breiss")
