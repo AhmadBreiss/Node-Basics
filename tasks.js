@@ -112,6 +112,9 @@ function remove(num){
   else if (index>list.length) {
     console.log("doesn't exist")
   }
+  else if(index>list.length){
+    console.log("does not exist please choose an element")
+  }
   else{
     console.log('error!!!!!')
   }
