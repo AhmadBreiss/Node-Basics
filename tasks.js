@@ -40,8 +40,8 @@ function onDataReceived(text) {
   else if(text === 'exit\n') {
     exit();
   }
-  else if(text === 'hello\n'){
-    hello();
+  else if(text.trim().split(" ")[0]==="hello"){
+    hello(text.trim().substring(5));
   }
   else if(text === 'help\n'){
     help();
@@ -66,11 +66,11 @@ function unknownCommand(c){
 
 /**
  * Says hello
- *
+ * /
  * @returns {void}
  */
-function hello(){
-  console.log('hello!')
+  function hello(text){
+    console.log(`Hello ${text}!`)
 }
 
 
