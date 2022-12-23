@@ -96,7 +96,7 @@ function unknownCommand(c){
     console.log(`Hello${text}!`)
 }
 
-var list=Array("task1","task2","task3");
+var list=Array("[ ]task1","[✓]task2","[ ]task3");
 function List(){
   console.log(
     list.map((tasks,key) => `${key+1} - ${tasks} `).join("\n")
@@ -137,8 +137,10 @@ function uncheck(unchecked) {
       ? console.log(`${unchecked.split(" ")[1].trim()} is not validated`
         )
       : list[index] !== undefined
-      ? (list[index] = list[index].replace(`✓`, " ").trim())
-      : console.log(`Nothing ${index + 1}`);
+      ? (list[index] =
+        list[index].split("]")[0].replace("✓",` ` ) +
+        `]${list[index].split("]")[1]}`)
+    : console.log(`No task with number ${index + 1}`);
   }
 }
 // function remove(text){
