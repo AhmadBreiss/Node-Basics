@@ -96,10 +96,9 @@ function exit(){
 // The following line starts the application
 function help() {
   console.log(`you may use these commands :
-  exit : "for close the application"
-  quit : "for close the application"
-  hello : " hello and your name gor welcoming"
-  help : "to find the command to use "
+  exit and quit : "for close the application"
+  hello : " hello and your name for welcoming"
+  help : "To find the command to use "
   `)
 }
 startApp("Ahmad Breiss")
