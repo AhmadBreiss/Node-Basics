@@ -43,6 +43,9 @@ function onDataReceived(text) {
   else if(text.trim().split(" ")[0]==="hello"){
     hello(text.trim().substring(5));
   }
+  else if (text==='list\n'){
+  List();
+  }
   else if(text === 'help\n'){
     help();
   }
@@ -73,7 +76,12 @@ function unknownCommand(c){
     console.log(`Hello${text}!`)
 }
 
-
+var list=Array("task1","task2","task3");
+function List(){
+  console.log(
+    list.map((tasks,key) => `${key+1} - ${tasks} `).join("\n")
+  )
+}
 /**
  * Exits the application
  *
