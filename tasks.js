@@ -55,6 +55,11 @@ function onDataReceived(text) {
   else if(text === 'help\n'){
     help();
   }
+  else if(text==='remove\n'){
+    list.pop()
+  } else if(text.startsWith('remove ')){
+    remove(text.slice(6, text.length-1))
+  }
   else{
     unknownCommand(text);
   }
@@ -92,6 +97,26 @@ function add(text){
  list.push(text.slice(4, text.length -1))
  console.log("you added a element")
 }
+// function remove(text){
+//   list.pop(text)
+//   console.log('removed the last element')
+//}
+function remove(num){
+  num=num.trim()
+  let index=parseInt(num);
+  if(!index && num!='0'){
+    list.pop()
+  } else if(index>=1 && index<=list.length){
+    list.splice(index-1, 1)
+  } 
+  else if (index>list.length) {
+    console.log("doesn't exist")
+  }
+  else{
+    console.log('error!!!!!')
+  }
+}
+
 /**
  * Exits the application
  *
@@ -105,7 +130,6 @@ function exit(){
   console.log('exitting now, goodbye!')
   process.exit();
 }
-
 /**
  * shows a list of the available commands
  *
